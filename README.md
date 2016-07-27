@@ -1,6 +1,6 @@
-# SharpMemory
+# Sharp Memory
 
-Library for Controlling Sharp Memory LCDs
+Library for Controlling Sharp Memory LCDs.
 There are two different libraries, one for Arduino and the other for Raspberry Pi
 For Arduino, there are two different versions. One is optimized for speed by keeping track of changes and only redrawing lines were data has been changed.
 The unoptimized version does not have those modifications and uses slightly less RAM.
