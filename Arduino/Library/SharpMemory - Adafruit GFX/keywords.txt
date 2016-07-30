@@ -1,0 +1,11 @@
+# Sharp Memory Constants
+DISPLAY_HEIGHT	LITERAL1
+DISPLAY_WIDTH	LITERAL1
+BLACK	LITERAL1
+WHITE	LITERAL1
+
+# Sharp Memory Methods
+drawPixel	KEYWORD2
+getPixel	KEYWORD2
+clearDisplay	KEYWORD2
+refresh	KEYWORD2
