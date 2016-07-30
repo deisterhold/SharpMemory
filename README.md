@@ -1,5 +1,7 @@
 # Sharp Memory
 
+[![Sharp Memory LCD Demo](http://img.youtube.com/vi/3rS-Gmcr_pQ/0.jpg)](http://www.youtube.com/watch?v=3rS-Gmcr_pQ)
+
 Library for Controlling Sharp Memory LCDs.
 There are two different libraries, one for Arduino and the other for Raspberry Pi
 For Arduino, there are two different versions. One is optimized for speed by keeping track of changes and only redrawing lines were data has been changed.
