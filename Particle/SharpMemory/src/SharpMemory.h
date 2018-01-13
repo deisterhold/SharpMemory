@@ -15,7 +15,7 @@
 // This will load the definition for common Particle variable types
 #include "Particle.h"
 
-#include <Adafruit_GFX/Adafruit_GFX.h>
+#include <Adafruit_GFX.h>
 #include <inttypes.h>
 
 // LCD Commands
