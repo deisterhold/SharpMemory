@@ -14,6 +14,7 @@
 
 // This will load the definition for common Particle variable types
 #include "Particle.h"
+#include "Arduino.h"
 
 #include <Adafruit_GFX.h>
 #include <inttypes.h>
