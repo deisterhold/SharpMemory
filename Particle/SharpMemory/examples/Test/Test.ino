@@ -22,8 +22,8 @@ Changed to support my optimized (only updates lines that have changed) version o
 //#define SPI_BUS SPI1
 
 #define CS_PIN A2
-SYSTEM_MODE(AUTOMATIC);
-SharpMemory display = SharpMemory(CS_PIN);
+
+SharpMemory display = SharpMemory(&SPI, CS_PIN);
 
 void setup() 
 {

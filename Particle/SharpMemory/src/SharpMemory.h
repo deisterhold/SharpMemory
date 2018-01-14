@@ -13,8 +13,16 @@
 #define __SHARP_MEMORY_H__
 
 // This will load the definition for common Particle variable types
-#include "Particle.h"
-#include "Arduino.h"
+#ifdef SPARK_PLATFORM
+  #include "Particle.h"
+#endif
+
+#if ARDUINO >= 100
+  #include "Arduino.h"
+  #include "SPI.h"
+#else
+  #include "WProgram.h"
+#endif
 
 #include <Adafruit_GFX.h>
 #include <inttypes.h>
@@ -31,8 +39,7 @@
 #define DISPLAY_WIDTH   96
 
 // SPI Settings
-#define SPI_BUS         SPI
-#define SPI_SPEED       2*MHZ
+#define SPI_SPEED       2000000
 #define SPI_BIT_ORDER   MSBFIRST
 #define SPI_MODE        SPI_MODE0
 
@@ -42,18 +49,21 @@
 class SharpMemory: public Adafruit_GFX {
 public:
     SharpMemory(uint8_t cs);
+    SharpMemory(SPIClass* bus, uint8_t cs);
     void drawPixel(int16_t x, int16_t y, uint16_t color = BLACK);
     uint8_t getPixel(uint16_t x, uint16_t y);
     void clearDisplay();
     void refresh();
     void writeLine(const unsigned char* lineData, uint16_t lineNumber);
 private:
+    SPIClass* spiBus;
     uint8_t chipSelect;
     bool vcomHigh;
     bool hasChanges;
     bool lineHasChanges[DISPLAY_HEIGHT];
     uint8_t frameBuffer[DISPLAY_HEIGHT][DISPLAY_WIDTH/8];
     
+    void init(SPIClass* bus, uint8_t cs);
     void sendByte(uint8_t data);
     void sendByteLSB(uint8_t data);
     void setCS(bool high);
@@ -100,3 +110,4 @@ private:
 };
 
 #endif
+
